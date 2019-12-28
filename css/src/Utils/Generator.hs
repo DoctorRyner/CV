@@ -5,7 +5,7 @@ import qualified Data.Text.Lazy.IO as TL
 import qualified Global
 
 run :: IO ()
-run = produce "../static/css"
+run = produce "../static/css/generated"
     [ "global" =: Global.css
     ]
 
