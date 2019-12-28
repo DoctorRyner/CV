@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/uikit/css/uikit.min.css" />
+    <link rel="stylesheet" href="static/css/global.css" />
+    <!-- JS -->
+    <script src="static/uikit/js/uikit.min.js"></script>
+    <script src="static/js/Ports.js"></script>
+</head>
+
+<body>
+    <div id="elm"></div>
+    <script src="static/js/Main.js"></script>
+    <script>
+        var app = Elm.Main.init({ node: document.getElementById('elm') })
+    </script>
+</body>

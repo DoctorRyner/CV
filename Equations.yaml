@@ -1,0 +1,49 @@
+default: sae --async gui-dev gui-css-dev
+
+gui-dev: elm-live src/Main.elm
+    --pushstate
+    --open
+    --start-page=static/index.html
+    --
+    --output=static/js/Main.js
+    --debug
+
+gui-css-dev: cd css && ghcid -r=run
+
+gui-css-generator: |
+    cd css
+    printf "Building CSS generator . . . "
+    stack build &> /dev/null
+    echo "DONE!"
+    stack run
+
+js-minify:
+    ./node_modules/google-closure-compiler/cli.js
+        --js=build/static/js/Main.js
+        --js_output_file=build/static/js/Main.min.js
+    && rm build/static/js/Main.js
+    && mv build/static/js/Main.min.js build/static/js/Main.js
+
+gui-build: |
+
+    # Compiling Elm files
+    elm make src/Main.elm --optimize --output=static/js/Main.js
+
+    # Generating CSS files
+    sae gui-css-generator
+
+    # Copying files
+    mkdir -p build
+    cp -r static build/
+    mv build/static/index.html build/
+
+    # Optimizing JS
+    printf "\nOptimizing JS . . . "
+    sae js-minify
+    echo "DONE!"
+
+    # echo "\nSize detailed:"
+    echo "\nSize overall:"
+    du -sh build
+
+gui-build-test: cd build && python -m SimpleHTTPServer

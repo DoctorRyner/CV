@@ -1,0 +1,14 @@
+# elm
+elm-stuff
+
+# static
+static/js/Main.js
+
+# npm
+node_modules
+
+# macOS
+.DS_Store
+
+# production
+build
