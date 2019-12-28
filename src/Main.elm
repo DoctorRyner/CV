@@ -10,7 +10,7 @@ import Subscriptions
 import Utils                     exposing (..)
 
 init : flags -> Url -> Nav.Key -> (Model, Cmd Event)
-init _ url key = pure <| mkDefaultModel key url
+init _ url key = runEvents [ Init ] <| mkDefaultModel key url
 
 main : Program () Model Event
 main = Browser.application

@@ -8,7 +8,9 @@ import Utils exposing (..)
 
 update : Event -> Model -> (Model, Cmd Event)
 update event model = case event of
-    NoEvent -> pure model
+    Init -> runEvents [ NoEvent ] model
+
+    NoEvent -> eff [] model
 
     LinkClicked urlRequest -> case urlRequest of
         Internal url  -> eff [ Nav.pushUrl model.key <| Url.toString url ] model

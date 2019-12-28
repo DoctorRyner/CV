@@ -1,7 +1,11 @@
 module View.Root exposing (..)
 
 import Html.Styled exposing (..)
-import Types       exposing (..)
+import Html.Styled.Attributes exposing (..)
+import Html.Styled.Events exposing (..)
+import Types exposing (..)
 
 render : Model -> Html Event
-render _ = text "Hello, my CV ~"
+render _ = div [ class "uk-container uk-margin-top uk-margin-left" ]
+    [ 
+    ]

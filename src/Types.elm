@@ -6,6 +6,7 @@ import Browser.Navigation as Nav
 
 type Event
     = NoEvent
+    | Init
     | LinkClicked UrlRequest
     | UrlChanged Url
 

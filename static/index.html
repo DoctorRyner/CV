@@ -11,13 +11,15 @@
     <!-- JS -->
     <script src="static/uikit/js/uikit.min.js"></script>
     <script src="static/uikit/js/uikit-icons.min.js"></script>
-    <script src="static/js/Ports.js"></script>
-</head>
 
 <body>
+    <div uk-lightbox>
+        <a class="uk-button uk-button-default" href="static/assembler_window.jpg">Open Lightbox</a>
+    </div>
     <div id="elm"></div>
     <script src="static/js/Main.js"></script>
     <script>
         var app = Elm.Main.init({ node: document.getElementById('elm') })
     </script>
+    <script src="static/js/Ports.js"></script>
 </body>
