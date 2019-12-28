@@ -24,6 +24,10 @@ js-minify:
     && rm build/static/js/Main.js
     && mv build/static/js/Main.min.js build/static/js/Main.js
 
+gui-init: |
+    mkdir -p static/css/generated
+    npm i
+
 gui-build: |
 
     # Compiling Elm files
