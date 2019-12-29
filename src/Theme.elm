@@ -11,7 +11,7 @@ type alias Theme = { name : String, color : ThemeColor }
 
 light : Theme
 light =
-    { name = "Light Theme"
+    { name = "light"
     , color =
         { primary     = "#9089FF"
         , secondary   = "#ADA8FB"
@@ -22,7 +22,7 @@ light =
 
 dark : Theme
 dark =
-    { name = "Dark Theme"
+    { name = "dark"
     , color =
         { primary     = "#786EFF"
         , secondary   = "#534BC1"
