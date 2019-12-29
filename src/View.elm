@@ -7,13 +7,23 @@ import Html.Styled.Attributes exposing (..)
 import Types                  exposing (..)
 
 import View.Root
+import View.PageHeader
 
 view : Model -> Document Event
 view model =
     let routes = case model.url.path of
             "/"     -> View.Root.render model
+            "/home" -> View.Root.render model
             _       -> text "404"
     in
     { title = "Elm Playground Application"
-    , body  = List.map toUnstyled [ routes ]
+    , body  = List.map toUnstyled
+        [ div [ class "uk-container" ]
+            [ View.PageHeader.render model
+            , routes
+            , node "style" []
+                [ text <| "html { background-color: " ++ model.theme.color.primaryBg ++ " }"
+                ]
+            ]
+        ]
     }

@@ -1,6 +1,7 @@
 module Global where
 
 import           Clay
+-- import           Utils.Theme
 
 css :: Css
-css = body ? mempty
+css = html ? mempty

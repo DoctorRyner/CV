@@ -6,9 +6,14 @@ dependencies:
 - base >= 4.7 && < 5
 - clay
 - text
+- record-hasfield
 
 ghc-options:
 - -Wall
+- -F -pgmF=record-dot-preprocessor
+
+default-extensions:
+- OverloadedStrings
 
 library:
     source-dirs: src

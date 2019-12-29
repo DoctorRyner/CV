@@ -1,18 +1,20 @@
-module Theme exposing (..)
+module Utils.Theme where
 
-type alias ThemeColor =
-    { primary     : String
-    , secondary   : String
-    , primaryBg   : String
-    , secondaryBg : String
+import qualified Data.Text as T
+
+data ThemeColor = ThemeColor
+    { primary
+    , secondary
+    , primaryBg
+    , secondaryBg :: T.Text
     }
 
-type alias Theme = { name : String, color : ThemeColor }
+data Theme = Theme { name :: T.Text, color :: ThemeColor }
 
-light : Theme
-light =
+light :: Theme
+light = Theme
     { name = "Light Theme"
-    , color =
+    , color = ThemeColor
         { primary     = "#9089FF"
         , secondary   = "#ADA8FB"
         , primaryBg   = "#FFFFFF"
@@ -20,10 +22,10 @@ light =
         }
     }
 
-dark : Theme
-dark =
+dark :: Theme
+dark = Theme
     { name = "Dark Theme"
-    , color =
+    , color = ThemeColor
         { primary     = "#786EFF"
         , secondary   = "#534BC1"
         , primaryBg   = "#212121"

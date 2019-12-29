@@ -6,7 +6,8 @@ import Browser.Navigation as Nav
 import Theme   exposing (..)
 
 type Event
-    = NoEvent
+    = SwitchTheme
+    | NoEvent
     | Init
     | LinkClicked UrlRequest
     | UrlChanged Url
