@@ -7,5 +7,5 @@ import Types exposing (..)
 
 render : Model -> Html Event
 render _ = div [ class "uk-container uk-margin-top uk-margin-left" ]
-    [ 
+    [
     ]

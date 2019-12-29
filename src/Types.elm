@@ -3,6 +3,7 @@ module Types exposing (..)
 import Url     exposing (..)
 import Browser exposing (..)
 import Browser.Navigation as Nav
+import Theme   exposing (..)
 
 type Event
     = NoEvent
@@ -13,10 +14,12 @@ type Event
 type alias Model =
     { key : Nav.Key
     , url : Url
+    , theme : Theme
     }
 
 mkDefaultModel : Nav.Key -> Url -> Model
 mkDefaultModel key url =
     { key = key
     , url = url
+    , theme = light
     }
