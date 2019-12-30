@@ -9,10 +9,5 @@ import Types exposing (..)
 render : Model -> Html Event
 render _ = div []
     [ h1 [] [ text "Test Header" ]
-    , ol []
-        [ li [] [ text "test" ]
-        , li [] [ text "test" ]
-        , li [] [ text "test" ]
-        ]
-    , button [ class "btn waves-effect waves-light deep-purple lighten-2" ] [ text "Click" ]
+    , button [ class "btn waves-effect waves-light deep-purple lighten-2", onClick Init ] [ text "Click" ]
     ]
