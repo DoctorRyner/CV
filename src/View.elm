@@ -8,12 +8,13 @@ import Types                  exposing (..)
 
 import View.Root
 import View.PageHeader
+import View.NotFound
 
 view : Model -> Document Event
 view model =
     let routes = case model.url.path of
             "/"     -> View.Root.render model
-            _       -> text "404"
+            _       -> View.NotFound.render model
     in
     { title = "Elm Playground Application"
     , body  = List.map toUnstyled <|

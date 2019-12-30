@@ -6,19 +6,18 @@ import Html.Styled.Attributes exposing (..)
 import Html.Styled.Events exposing (..)
 import Css exposing (..)
 
-mkHeaderItem : (String, String) -> Html Event
-mkHeaderItem (path, label) = a
-    [ href path
-    , class "collection-item black-text"
+tabs : Model -> Html Event
+tabs _ = node "materialize-tabs" []
+    [ div [ class "tabs tabs-fixed-width" ]
+        [ li [ class "tab" ] [ a [ href "/" ] [ text "Home" ] ] 
+        , li [ class "tab" ] [ a [ href "cv" ] [ text "CV" ] ] 
+        , li [ class "tab" ] [ a [ href "docs" ] [ text "Docs" ] ] 
+        ]
     ]
-    [ text label ]
 
 render : Model -> Html Event
-render _ = div []
-    [ div [ class "collection deep-grey" ] <| List.map mkHeaderItem
-        [ ("/", "Home")
-        , ("CV", "CV")
-        , ("docs", "Docs")
-        ]
+render model = div [ class "tabs-sticky" ]
+    [ h1 [] []
+    , tabs model
     ]
 

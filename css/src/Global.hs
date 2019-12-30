@@ -1,7 +1,12 @@
 module Global where
 
 import           Clay
--- import           Utils.Theme
 
 css :: Css
-css = html ? mempty
+css = do
+    html ? mempty
+
+    ".tabs-sticky" ? do
+        position sticky
+        top $ px 0
+        opacity 0.98
