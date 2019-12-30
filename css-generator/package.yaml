@@ -1,0 +1,32 @@
+name:                css-generator
+version:             0.1
+
+description:         Please see the README on GitHub at <https://github.com/githubuser/css#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- text
+- record-hasfield
+- clay
+
+ghc-options:
+- -Wall
+- -F -pgmF=record-dot-preprocessor
+
+default-extensions:
+- OverloadedStrings
+
+library:
+    source-dirs: src
+
+executables:
+    css-generator:
+        main:                Main.hs
+        source-dirs:         app
+        ghc-options:
+        - -threaded
+        - -rtsopts
+        - -with-rtsopts=-N
+        - -O0
+        dependencies:
+        - css-generator

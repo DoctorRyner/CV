@@ -1,0 +1,45 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 4a78b39f2b4dd09f7506ae862ff610dc378f28034b2502f91e3b75926eae80b1
+
+name:           css-generator
+version:        0.1
+description:    Please see the README on GitHub at <https://github.com/githubuser/css#readme>
+build-type:     Simple
+
+library
+  exposed-modules:
+      Global
+      Utils.Generator
+  other-modules:
+      Paths_css_generator
+  hs-source-dirs:
+      src
+  default-extensions: OverloadedStrings
+  ghc-options: -Wall -F -pgmF=record-dot-preprocessor
+  build-depends:
+      base >=4.7 && <5
+    , clay
+    , record-hasfield
+    , text
+  default-language: Haskell2010
+
+executable css-generator
+  main-is: Main.hs
+  other-modules:
+      Paths_css_generator
+  hs-source-dirs:
+      app
+  default-extensions: OverloadedStrings
+  ghc-options: -Wall -F -pgmF=record-dot-preprocessor -threaded -rtsopts -with-rtsopts=-N -O0
+  build-depends:
+      base >=4.7 && <5
+    , clay
+    , css-generator
+    , record-hasfield
+    , text
+  default-language: Haskell2010
