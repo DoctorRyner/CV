@@ -8,7 +8,7 @@ gui-dev: elm-live src/Main.elm
     --output=static/js/Main.js
     --debug
 
-gui-css-dev: cd css && ghcid -r=run
+gui-css-dev: cd css-generator && ghcid -r=run
 
 gui-css-generator: |
     cd css

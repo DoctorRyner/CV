@@ -7,19 +7,22 @@ import Types exposing (..)
 import Utils exposing (..)
 import Http exposing (..)
 import Dict
+import Http.Locale
 
 update : Event -> Model -> (Model, Cmd Event)
 update event model = case event of
     Init -> eff
-        [
+        [ send <| LocaleGet "en"
         ] 
         model
 
-    GetLocale result -> pure <| case result of
+    LocaleGet name -> eff [ Http.Locale.get name ] model
+
+    LocaleGetResult result -> pure <| case result of
         Ok locale ->
             { model
                 | locale = locale
-                , get = \key -> Maybe.withDefault "" <| Dict.get key locale
+                , get = \key -> Maybe.withDefault key <| Dict.get key locale
             }
         Err _ -> model
 

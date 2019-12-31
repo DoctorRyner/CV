@@ -4,9 +4,9 @@ import Types exposing (..)
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 
-render : Model -> Html Event
-render _ = div []
+render : String -> Html Event
+render notFoundText = div []
     [ h1 [] [ text "404" ]
     , hr [] []
-    , h4 [] [ text "Page doesn't exist, maybe there is a typo?" ]
+    , p [ class "flow-text" ] [ text notFoundText ]
     ]

@@ -9,7 +9,8 @@ import Http
 
 type Event
     = NoEvent
-    | GetLocale (Result Http.Error Locale)
+    | LocaleGetResult (Result Http.Error Locale)
+    | LocaleGet String
     | Init
     | LinkClicked UrlRequest
     | UrlChanged Url

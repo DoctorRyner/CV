@@ -16,7 +16,7 @@ tabs _ = node "materialize-tabs" []
     ]
 
 render : Model -> Html Event
-render model = div [ class "tabs-sticky" ]
+render model = header []
     [ h1 [] []
     , tabs model
     ]

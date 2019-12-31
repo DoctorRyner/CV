@@ -7,17 +7,20 @@ import Html.Styled.Events exposing (..)
 import Types exposing (..)
 
 render : Model -> Html Event
-render _ = div [] <|
+render model = div [ class "row" ] <|
     [ br [] []
     , br [] []
-    , node "materialboxed-image" []
+    , node "materialboxed-image"
+        [ class "col m4"
+        ]
         [ img
             [ src "static/img/Ryner.jpg"
-            , class "materialboxed"
-            , width 200
+            , class "materialboxed responsive-img"
+            , id "homeAvatar"
             ]
             []
         ]
-    , h4 [] [ text "Ryner" ]
-    , h4 [] [ text "Reinhardt" ]
+    , h4 [ class "col s7 valign-wrapper" ]
+        [ pre [] [ text <| model.get "myFirstName" ++ " " ++ model.get "myLastName" ]
+        ]
     ]

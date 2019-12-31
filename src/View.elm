@@ -9,12 +9,13 @@ import Types                  exposing (..)
 import View.Root
 import View.PageHeader
 import View.NotFound
+import View.Preloader exposing (showLoadingBarIfLocaleIsntLoaded) 
 
 view : Model -> Document Event
 view model =
-    let routes = case model.url.path of
+    let routes = showLoadingBarIfLocaleIsntLoaded model.locale <| case model.url.path of
             "/"     -> View.Root.render model
-            _       -> View.NotFound.render model
+            _       -> View.NotFound.render <| model.get "notFound"
     in
     { title = "Elm Playground Application"
     , body  = List.map toUnstyled <|

@@ -7,5 +7,5 @@ import Types exposing (..)
 get : String -> Cmd Event
 get localeName = Http.get
     { url = "static/locale/" ++ localeName ++ ".json"
-    , expect = Http.expectJson GetLocale <| D.dict D.string
+    , expect = Http.expectJson LocaleGetResult <| D.dict D.string
     }
