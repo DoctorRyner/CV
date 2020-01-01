@@ -1,18 +1,12 @@
 module Global where
 
-import           Clay
+import           Clay          hiding ((&))
+import           Data.Function
 
 css :: Css
 css = do
     html ? mempty
 
-    header ? do
-        position sticky
-        top $ px 0
-        zIndex 1
-        opacity 0.98
-
-    "#homeAvatar" ? mempty
-        -- maxWidth $ px 300
-        -- width $ pct 100
-        -- minHeight $ px 300
+    "#languageIcon" ? do
+        position absolute
+        transform $ translate (-26&px) (1.6&px)

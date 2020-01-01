@@ -7,7 +7,7 @@ import Html.Styled.Attributes exposing (..)
 import Types                  exposing (..)
 
 import View.Root
-import View.PageHeader
+import View.Header
 import View.NotFound
 import View.Preloader exposing (showLoadingBarIfLocaleIsntLoaded) 
 
@@ -19,9 +19,9 @@ view model =
     in
     { title = "Elm Playground Application"
     , body  = List.map toUnstyled <|
-        [ div [ class "container" ]  
-            [ View.PageHeader.render model
-            , routes
+        [ div [ class "uk-container" ]  
+            [ View.Header.render model
+            , div [ id "routes-container", class model.routesContainerClass ] [ routes ]
             ]
         ]
     }

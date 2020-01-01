@@ -1,4 +1,7 @@
 { "myFirstName": "Рустам"
 , "myLastName": "Исмаилов"
 , "notFound": "Упс, вероятно вы попали сюда по ошибке?"
+, "homePageName": "Главная"
+, "cvPageName": "Резюме"
+, "docsPageName": "Документация"
 }

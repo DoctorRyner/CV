@@ -9,6 +9,8 @@ import Http
 
 type Event
     = NoEvent
+    | SetRoutesContainerClass String
+    | ApplyChangeRouteAnimation
     | LocaleGetResult (Result Http.Error Locale)
     | LocaleGet String
     | Init
@@ -20,6 +22,7 @@ type alias Model =
     , url : Url
     , locale : Locale
     , get : String -> String
+    , routesContainerClass : String
     }
 
 mkDefaultModel : Nav.Key -> Url -> Model
@@ -28,4 +31,5 @@ mkDefaultModel key url =
     , url = url
     , locale = Dict.empty
     , get = identity
+    , routesContainerClass = "uk-animation-fade"
     }

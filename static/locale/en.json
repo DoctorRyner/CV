@@ -1,4 +1,7 @@
 { "myFirstName": "Ryner"
 , "myLastName": "Reinhardt"
 , "notFound": "Oops, perhaps you got here by an accident?"
+, "homePageName": "Home"
+, "cvPageName": "CV"
+, "docsPageName": "Docs"
 }

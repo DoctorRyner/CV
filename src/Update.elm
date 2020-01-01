@@ -16,6 +16,13 @@ update event model = case event of
         ] 
         model
 
+    ApplyChangeRouteAnimation -> eff
+        [ delay 20 <| SetRoutesContainerClass "uk-animation-fade"
+        ]
+        { model | routesContainerClass = "uk-invisible" }
+
+    SetRoutesContainerClass class -> pure { model | routesContainerClass = class }
+
     LocaleGet name -> eff [ Http.Locale.get name ] model
 
     LocaleGetResult result -> pure <| case result of
