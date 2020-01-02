@@ -6,12 +6,10 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 import Html.Styled.Events exposing (..)
 import Css exposing (..)
--- import Dict
+import Dict
 
 showLoadingBarIfLocaleIsntLoaded : Locale -> Html Event -> Html Event
-showLoadingBarIfLocaleIsntLoaded _ view =
-    if False -- locale == Dict.empty
-    then div [ class "progress valign-wrapper" ]
-        [ div [ class "indeterminate valign-wrapper" ] []
-        ]
-    else view
+showLoadingBarIfLocaleIsntLoaded locale routeContent =
+    if locale == Dict.empty
+    then span [ attribute "uk-spinner" "ratio: 3", class "uk-position-center" ] []
+    else routeContent

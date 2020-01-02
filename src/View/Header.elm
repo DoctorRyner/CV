@@ -5,12 +5,23 @@ import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (..)
 import Html.Styled.Events exposing (..)
 import Css exposing (..)
+import Dict
 
 render : Model -> Html Event
 render model =
     let isActive path = class <| if model.url.path == path then "uk-active" else ""
-        mkNavItem (path, label) = li [ isActive <| if path == "/" then "/" else "/" ++ path ]
-                                     [ a [ href path, onClick ApplyChangeRouteAnimation ] [ text label ] ]
+        mkNavItem (path, label) =
+            li
+                [ isActive <| if path == "/" then "/" else "/" ++ path ]
+                [ a
+                    [ href path
+                    , onClick ApplyChangeRouteAnimation
+                    ]
+                    [ if model.locale == Dict.empty
+                      then div [ attribute "uk-spinner" "" ] []
+                      else text label
+                    ]
+                ]
     in header []
     [ label [ class "uk-flex uk-flex-center uk-margin-top" ]
         [ div []
