@@ -11,4 +11,6 @@ css = do
         position absolute
         transform $ translate (-26&px) (1.6&px)
 
-    "#avatarNameLabel" ? marginTop (5&px)
+    "#avatarNameLabel" ? do
+        marginTop $ 5&px
+        overflow hidden

@@ -8,7 +8,7 @@ import Types exposing (..)
 import Utils exposing (..)
 
 render : Model -> Html Event
-render model = div [ class "uk-flex uk-flex-wrap uk-flex-left@m uk-flex-center" ]
+render model = div [ class "uk-flex uk-flex-wrap uk-flex-left@s uk-flex-center" ]
     [ div
         [ class "uk-transition-toggle uk-inline-clip uk-flex-left"
         , attribute "tabindex" "0"
