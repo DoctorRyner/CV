@@ -13,7 +13,6 @@ type Event
     | ApplyChangeRouteAnimation
     | LocaleGetResult (Result Http.Error Locale)
     | LocaleGet String
-    | Init
     | LinkClicked UrlRequest
     | UrlChanged Url
 

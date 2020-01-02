@@ -9,10 +9,12 @@ import Update
 import Subscriptions
 import Utils                     exposing (..)
 
-init : flags -> Url -> Nav.Key -> (Model, Cmd Event)
-init _ url key = runEvents [ Init ] <| mkDefaultModel key url
+init : String -> Url -> Nav.Key -> (Model, Cmd Event)
+init savedLocaleName url key = eff
+    [ send <| LocaleGet savedLocaleName
+    ] <| mkDefaultModel key url
 
-main : Program () Model Event
+main : Program String Model Event
 main = Browser.application
     { init          = init
     , view          = View.view

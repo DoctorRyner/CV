@@ -9,13 +9,10 @@ import Http exposing (..)
 import Dict
 import Http.Locale
 
+import Port.LocalStorage as LocalStorage
+
 update : Event -> Model -> (Model, Cmd Event)
 update event model = case event of
-    Init -> eff
-        [ send <| LocaleGet "en"
-        ] 
-        model
-
     ApplyChangeRouteAnimation -> eff
         [ delay 20 <| SetRoutesContainerClass "uk-animation-fade"
         ]
@@ -23,7 +20,7 @@ update event model = case event of
 
     SetRoutesContainerClass class -> pure { model | routesContainerClass = class }
 
-    LocaleGet name -> eff [ Http.Locale.get name ] model
+    LocaleGet name -> eff [ Http.Locale.get name, LocalStorage.setCurrentLocale name ] model
 
     LocaleGetResult result -> pure <| case result of
         Ok locale ->
