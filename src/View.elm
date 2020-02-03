@@ -7,6 +7,7 @@ import Html.Styled.Attributes exposing (..)
 import Types                  exposing (..)
 
 import View.Root
+import View.CV
 import View.Header
 import View.NotFound
 import View.Preloader exposing (showLoadingBarIfLocaleIsntLoaded) 
@@ -15,6 +16,7 @@ view : Model -> Document Event
 view model =
     let routes = showLoadingBarIfLocaleIsntLoaded model.locale <| case model.url.path of
             "/"     -> View.Root.render model
+            "/cv"   -> View.CV.render model
             _       -> View.NotFound.render <| model.get "notFound"
     in
     { title = "Ryner Reinhardt"
