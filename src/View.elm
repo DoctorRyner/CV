@@ -17,7 +17,7 @@ view model =
             "/"     -> View.Root.render model
             _       -> View.NotFound.render <| model.get "notFound"
     in
-    { title = "Elm Playground Application"
+    { title = "Ryner Reinhardt"
     , body  = List.map toUnstyled <|
         [ div [ class "uk-container" ]  
             [ View.Header.render model

@@ -4,4 +4,7 @@
 , "homePageName": "Home"
 , "cvPageName": "CV"
 , "docsPageName": "Docs"
+, "gender": "Gender"
+, "genderValue": "Male"
+, "age": "Age"
 }

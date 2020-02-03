@@ -4,4 +4,7 @@
 , "homePageName": "Главная"
 , "cvPageName": "Резюме"
 , "docsPageName": "Документация"
+, "gender": "Пол"
+, "genderValue": "Мужской"
+, "age": "Возраст"
 }
